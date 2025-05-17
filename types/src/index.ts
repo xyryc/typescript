@@ -53,3 +53,20 @@ function processValue(value: string | number): number {
   }
 }
 
+interface Product {
+  name: string;
+  price: number;
+}
+
+function getMostExpensiveProduct(products: Product[]): Product | null {
+  if (products.length === 0) return null;
+
+  let expensiveProduct = products[0];
+
+  for (const product of products) {
+    if (product.price > expensiveProduct.price) expensiveProduct = product;
+  }
+
+  return expensiveProduct;
+}
+
